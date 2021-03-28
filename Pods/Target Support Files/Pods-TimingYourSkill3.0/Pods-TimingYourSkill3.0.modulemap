@@ -1,0 +1,6 @@
+framework module Pods_TimingYourSkill3_0 {
+  umbrella header "Pods-TimingYourSkill3.0-umbrella.h"
+
+  export *
+  module * { export * }
+}

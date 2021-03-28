@@ -1,0 +1,73 @@
+//
+//  NewTaskViewController.swift
+//  TimingYourSkill3.0
+//
+//  Created by Pavlo Ostrozhynskyi on 26.03.2021.
+//
+
+import UIKit
+
+class NewTaskViewController: UIViewController {
+    
+    @IBOutlet weak var containerView: UIView! 
+    @IBOutlet weak var containerViewBottomConstrain: NSLayoutConstraint!
+    @IBOutlet weak var taskTextField: UIView!
+    @IBOutlet weak var backgroundView: UIView!
+     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupView()
+        setupGesture()
+        observeKeyboard()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) { //анмація відкривання taskTextField
+        super.viewDidAppear(animated)
+        taskTextField.becomeFirstResponder()
+    }
+     
+    private func setupView() {
+        backgroundView.backgroundColor = UIColor.init(white: 0.3, alpha: 0.4)
+        containerViewBottomConstrain.constant = -containerView.frame.height
+    }
+    
+    private func setupGesture() { // функція для нажимання на екран щоб пропав контроллер
+        let tapGestures = UITapGestureRecognizer(target: self, action: #selector(dismissViewController))
+        view.addGestureRecognizer(tapGestures)
+        
+    }
+    
+    private func observeKeyboard() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+   
+    }
+    
+    @objc func keyboardWillShow(_ notification: Notification ) { // в цій функції зробив щоб зайве місце в контейнері займала клавіатура
+        let keyboardHeight = getKeyboardHeight(notification: notification)
+        
+        
+        containerViewBottomConstrain.constant =  keyboardHeight - (200 +  8)
+        
+    }
+    
+    @objc func keyboardWillHide(_ notification: Notification ) {
+    
+        
+        containerViewBottomConstrain.constant =  -containerView.frame.height
+        
+    }
+      
+    
+    
+    private func getKeyboardHeight (notification: Notification) -> CGFloat  {  // розмір клавіатури
+        guard let keyboardHeight = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height else {return 0}
+        return keyboardHeight
+    }
+    
+    @objc private func dismissViewController() {
+        dismiss(animated: true, completion: nil)
+         
+    }
+}
