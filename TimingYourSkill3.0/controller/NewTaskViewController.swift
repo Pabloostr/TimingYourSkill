@@ -11,7 +11,7 @@ class NewTaskViewController: UIViewController {
     
     @IBOutlet weak var containerView: UIView! 
     @IBOutlet weak var containerViewBottomConstrain: NSLayoutConstraint!
-    @IBOutlet weak var taskTextField: UIView!
+    @IBOutlet weak var taskTextField: UITextField!
     @IBOutlet weak var backgroundView: UIView!
      
     override func viewDidLoad() {
@@ -46,10 +46,13 @@ class NewTaskViewController: UIViewController {
     
     @objc func keyboardWillShow(_ notification: Notification ) { // в цій функції зробив щоб зайве місце в контейнері займала клавіатура
         let keyboardHeight = getKeyboardHeight(notification: notification)
-        
-        
-        containerViewBottomConstrain.constant =  keyboardHeight - (200 +  8)
-        
+        //анімація клавіатури ...
+        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.75 ,  initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: { [unowned self]
+            in
+            self.containerViewBottomConstrain.constant =  keyboardHeight - (200 +  8)
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+
     }
     
     @objc func keyboardWillHide(_ notification: Notification ) {
