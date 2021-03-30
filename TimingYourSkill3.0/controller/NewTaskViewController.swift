@@ -17,7 +17,9 @@ class NewTaskViewController: UIViewController {
     @IBOutlet weak var saveButton: UIButton!
     
     private var subscribers = Set<AnyCancellable>()
-    @Published private var tasksString: String?
+    @Published private var taskString: String?
+    
+    private let  databaseManager = DatabaseManeger()
      
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,10 +34,10 @@ class NewTaskViewController: UIViewController {
         NotificationCenter.default.publisher(for: UITextField.textDidChangeNotification).map({
             ($0.object as? UITextField)?.text
         }).sink { [unowned self] (text) in
-            self.tasksString = text
+            self.taskString = text
         }.store(in: &subscribers)
         
-        $tasksString.sink { [unowned self] (text) in
+        $taskString.sink { [unowned self] (text) in
             self.saveButton.isEnabled = text?.isEmpty == false
         }.store(in: &subscribers)
     }
@@ -99,5 +101,16 @@ class NewTaskViewController: UIViewController {
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
+        guard let taskString = self.taskString else {return}
+        let task = Task(title: taskString)
+        
+        databaseManager.addTask(task) { (result ) in
+            switch result {
+            case .success:
+                print("yay")
+            case .failure(let error):
+                print("error:  \(error.localizedDescription)")
+            }
+        }
     }
 }

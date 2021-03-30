@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		8A2204E7A37C0861F9E1BCE3 /* Pods_TimingYourSkill3_0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C933D37FFA4B8B9921BE92A6 /* Pods_TimingYourSkill3_0.framework */; };
 		B103D16826135F690085777E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B103D16726135F690085777E /* GoogleService-Info.plist */; };
+		B103D16B261362C60085777E /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = B103D16A261362C60085777E /* Task.swift */; };
+		B103D170261367140085777E /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B103D16F261367140085777E /* DatabaseManager.swift */; };
 		B11C7E92260E702C00D05065 /* NewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11C7E91260E702C00D05065 /* NewTaskViewController.swift */; };
 		B14B5FD8260D26F200ADE0C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14B5FD7260D26F200ADE0C5 /* AppDelegate.swift */; };
 		B14B5FDA260D26F200ADE0C5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14B5FD9260D26F200ADE0C5 /* SceneDelegate.swift */; };
@@ -26,6 +28,8 @@
 		1CCF9D620B384F7F5522C926 /* Pods-TimingYourSkill3.0.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimingYourSkill3.0.debug.xcconfig"; path = "Target Support Files/Pods-TimingYourSkill3.0/Pods-TimingYourSkill3.0.debug.xcconfig"; sourceTree = "<group>"; };
 		3AB6E8A4189F34699DE77ABA /* Pods-TimingYourSkill3.0.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimingYourSkill3.0.release.xcconfig"; path = "Target Support Files/Pods-TimingYourSkill3.0/Pods-TimingYourSkill3.0.release.xcconfig"; sourceTree = "<group>"; };
 		B103D16726135F690085777E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B103D16A261362C60085777E /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		B103D16F261367140085777E /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		B11C7E91260E702C00D05065 /* NewTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskViewController.swift; sourceTree = "<group>"; };
 		B14B5FD4260D26F200ADE0C5 /* TimingYourSkill3.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimingYourSkill3.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B14B5FD7260D26F200ADE0C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +75,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B103D16E261366DB0085777E /* service */ = {
+			isa = PBXGroup;
+			children = (
+				B103D16F261367140085777E /* DatabaseManager.swift */,
+			);
+			path = service;
+			sourceTree = "<group>";
+		};
 		B14B5FCB260D26F200ADE0C5 = {
 			isa = PBXGroup;
 			children = (
@@ -93,11 +105,11 @@
 		B14B5FD6260D26F200ADE0C5 /* TimingYourSkill3.0 */ = {
 			isa = PBXGroup;
 			children = (
+				B103D16E261366DB0085777E /* service */,
 				B1DEF5FB260D489A001BC3FD /* controller */,
 				B1DEF5F6260D430F001BC3FD /* model */,
 				B14B5FD7260D26F200ADE0C5 /* AppDelegate.swift */,
 				B14B5FD9260D26F200ADE0C5 /* SceneDelegate.swift */,
-				B14B5FDB260D26F200ADE0C5 /* TasksViewController.swift */,
 				B14B5FDD260D26F200ADE0C5 /* Main.storyboard */,
 				B14B5FE0260D26F400ADE0C5 /* Assets.xcassets */,
 				B14B5FE2260D26F400ADE0C5 /* LaunchScreen.storyboard */,
@@ -111,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				B1DEF5F7260D432F001BC3FD /* menuSection.swift */,
+				B103D16A261362C60085777E /* Task.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -118,6 +131,7 @@
 		B1DEF5FB260D489A001BC3FD /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				B14B5FDB260D26F200ADE0C5 /* TasksViewController.swift */,
 				B1DEF5FC260D48C5001BC3FD /* OngoingTasksTableViewController.swift */,
 				B1DEF5FF260D49A3001BC3FD /* DoneTasksTableViewController.swift */,
 				B11C7E91260E702C00D05065 /* NewTaskViewController.swift */,
@@ -241,6 +255,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B103D16B261362C60085777E /* Task.swift in Sources */,
 				B14B5FDC260D26F200ADE0C5 /* TasksViewController.swift in Sources */,
 				B11C7E92260E702C00D05065 /* NewTaskViewController.swift in Sources */,
 				B14B5FD8260D26F200ADE0C5 /* AppDelegate.swift in Sources */,
@@ -248,6 +263,7 @@
 				B14B5FDA260D26F200ADE0C5 /* SceneDelegate.swift in Sources */,
 				B1DEF600260D49A3001BC3FD /* DoneTasksTableViewController.swift in Sources */,
 				B1DEF5FD260D48C5001BC3FD /* OngoingTasksTableViewController.swift in Sources */,
+				B103D170261367140085777E /* DatabaseManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
