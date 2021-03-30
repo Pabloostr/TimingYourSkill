@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8A2204E7A37C0861F9E1BCE3 /* Pods_TimingYourSkill3_0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C933D37FFA4B8B9921BE92A6 /* Pods_TimingYourSkill3_0.framework */; };
+		B103D16826135F690085777E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B103D16726135F690085777E /* GoogleService-Info.plist */; };
 		B11C7E92260E702C00D05065 /* NewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11C7E91260E702C00D05065 /* NewTaskViewController.swift */; };
 		B14B5FD8260D26F200ADE0C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14B5FD7260D26F200ADE0C5 /* AppDelegate.swift */; };
 		B14B5FDA260D26F200ADE0C5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14B5FD9260D26F200ADE0C5 /* SceneDelegate.swift */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		1CCF9D620B384F7F5522C926 /* Pods-TimingYourSkill3.0.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimingYourSkill3.0.debug.xcconfig"; path = "Target Support Files/Pods-TimingYourSkill3.0/Pods-TimingYourSkill3.0.debug.xcconfig"; sourceTree = "<group>"; };
 		3AB6E8A4189F34699DE77ABA /* Pods-TimingYourSkill3.0.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimingYourSkill3.0.release.xcconfig"; path = "Target Support Files/Pods-TimingYourSkill3.0/Pods-TimingYourSkill3.0.release.xcconfig"; sourceTree = "<group>"; };
+		B103D16726135F690085777E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B11C7E91260E702C00D05065 /* NewTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskViewController.swift; sourceTree = "<group>"; };
 		B14B5FD4260D26F200ADE0C5 /* TimingYourSkill3.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimingYourSkill3.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B14B5FD7260D26F200ADE0C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				B14B5FDD260D26F200ADE0C5 /* Main.storyboard */,
 				B14B5FE0260D26F400ADE0C5 /* Assets.xcassets */,
 				B14B5FE2260D26F400ADE0C5 /* LaunchScreen.storyboard */,
+				B103D16726135F690085777E /* GoogleService-Info.plist */,
 				B14B5FE5260D26F400ADE0C5 /* Info.plist */,
 			);
 			path = TimingYourSkill3.0;
@@ -183,6 +186,7 @@
 			files = (
 				B14B5FE4260D26F400ADE0C5 /* LaunchScreen.storyboard in Resources */,
 				B14B5FE1260D26F400ADE0C5 /* Assets.xcassets in Resources */,
+				B103D16826135F690085777E /* GoogleService-Info.plist in Resources */,
 				B14B5FED260D277100ADE0C5 /* Podfile in Resources */,
 				B14B5FDF260D26F200ADE0C5 /* Main.storyboard in Resources */,
 			);

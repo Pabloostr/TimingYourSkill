@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>225084984671-u21ma7p42cnu81hhnqn70mf0a9lqee5g.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.225084984671-u21ma7p42cnu81hhnqn70mf0a9lqee5g</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBFcrLY1Kj3lWkzmUUBoiToEpeBz-SyGWo</string>
+	<key>GCM_SENDER_ID</key>
+	<string>225084984671</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>Pablo.TimingYourSkill3-0</string>
+	<key>PROJECT_ID</key>
+	<string>timingyourskill</string>
+	<key>STORAGE_BUCKET</key>
+	<string>timingyourskill.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:225084984671:ios:80930995b6ad56113c7aea</string>
+</dict>
+</plist>

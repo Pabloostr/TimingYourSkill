@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 class NewTaskViewController: UIViewController {
     
@@ -13,13 +14,32 @@ class NewTaskViewController: UIViewController {
     @IBOutlet weak var containerViewBottomConstrain: NSLayoutConstraint!
     @IBOutlet weak var taskTextField: UITextField!
     @IBOutlet weak var backgroundView: UIView!
+    @IBOutlet weak var saveButton: UIButton!
+    
+    private var subscribers = Set<AnyCancellable>()
+    @Published private var tasksString: String?
      
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        observeForm()
         setupGesture()
         observeKeyboard()
     }
+    
+    private func observeForm() { // настройка кнопки save . Поки тексту нема кнопка буде сірою
+
+        NotificationCenter.default.publisher(for: UITextField.textDidChangeNotification).map({
+            ($0.object as? UITextField)?.text
+        }).sink { [unowned self] (text) in
+            self.tasksString = text
+        }.store(in: &subscribers)
+        
+        $tasksString.sink { [unowned self] (text) in
+            self.saveButton.isEnabled = text?.isEmpty == false
+        }.store(in: &subscribers)
+    }
+    
     
     override func viewDidAppear(_ animated: Bool) { //анмація відкривання taskTextField
         super.viewDidAppear(animated)
@@ -72,5 +92,12 @@ class NewTaskViewController: UIViewController {
     @objc private func dismissViewController() {
         dismiss(animated: true, completion: nil)
          
+    }
+    
+    
+    @IBAction func calendarButtonTapped(_ sender: Any) {
+    }
+    
+    @IBAction func saveButtonTapped(_ sender: Any) {
     }
 }

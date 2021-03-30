@@ -123,16 +123,30 @@
                                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fue-lb-q3x">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Fue-lb-q3x">
                                                         <rect key="frame" x="0.0" y="48" width="382" height="40"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LSx-2E-4vn">
-                                                                <rect key="frame" x="0.0" y="0.0" width="382" height="40"/>
+                                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OAE-60-1c8">
+                                                                <rect key="frame" x="0.0" y="0.0" width="21" height="40"/>
+                                                                <state key="normal" image="calendar" catalog="system"/>
+                                                                <connections>
+                                                                    <action selector="calendarButtonTapped:" destination="VAv-k8-LFT" eventType="touchUpInside" id="hJI-cM-Wxu"/>
+                                                                </connections>
+                                                            </button>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Uv-U0-tzh">
+                                                                <rect key="frame" x="37" y="0.0" width="289" height="40"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            </view>
+                                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LSx-2E-4vn">
+                                                                <rect key="frame" x="342" y="0.0" width="40" height="40"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="40" id="nVK-HO-xCS"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
                                                                 <state key="normal" title=" Save"/>
+                                                                <connections>
+                                                                    <action selector="saveButtonTapped:" destination="VAv-k8-LFT" eventType="touchUpInside" id="Geb-9R-8Ck"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -176,6 +190,7 @@
                         <outlet property="backgroundView" destination="jUF-6z-oQD" id="cYA-yj-i7E"/>
                         <outlet property="containerView" destination="UHe-rh-ojv" id="l5a-hg-qJi"/>
                         <outlet property="containerViewBottomConstrain" destination="PD7-fC-ii1" id="JZa-uk-JCq"/>
+                        <outlet property="saveButton" destination="LSx-2E-4vn" id="Vem-y8-bMh"/>
                         <outlet property="taskTextField" destination="r5B-Ux-44e" id="cvo-hx-J0Y"/>
                     </connections>
                 </viewController>
@@ -259,6 +274,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
