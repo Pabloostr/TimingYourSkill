@@ -11,6 +11,8 @@
 		B103D16826135F690085777E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B103D16726135F690085777E /* GoogleService-Info.plist */; };
 		B103D16B261362C60085777E /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = B103D16A261362C60085777E /* Task.swift */; };
 		B103D170261367140085777E /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B103D16F261367140085777E /* DatabaseManager.swift */; };
+		B103D1752613709E0085777E /* TasksVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B103D1742613709E0085777E /* TasksVCDelegate.swift */; };
+		B103D179261378190085777E /* OngoinTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B103D178261378190085777E /* OngoinTaskTableViewCell.swift */; };
 		B11C7E92260E702C00D05065 /* NewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11C7E91260E702C00D05065 /* NewTaskViewController.swift */; };
 		B14B5FD8260D26F200ADE0C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14B5FD7260D26F200ADE0C5 /* AppDelegate.swift */; };
 		B14B5FDA260D26F200ADE0C5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14B5FD9260D26F200ADE0C5 /* SceneDelegate.swift */; };
@@ -30,6 +32,8 @@
 		B103D16726135F690085777E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B103D16A261362C60085777E /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		B103D16F261367140085777E /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		B103D1742613709E0085777E /* TasksVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksVCDelegate.swift; sourceTree = "<group>"; };
+		B103D178261378190085777E /* OngoinTaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoinTaskTableViewCell.swift; sourceTree = "<group>"; };
 		B11C7E91260E702C00D05065 /* NewTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskViewController.swift; sourceTree = "<group>"; };
 		B14B5FD4260D26F200ADE0C5 /* TimingYourSkill3.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimingYourSkill3.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B14B5FD7260D26F200ADE0C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +87,22 @@
 			path = service;
 			sourceTree = "<group>";
 		};
+		B103D1732613707A0085777E /* protocol */ = {
+			isa = PBXGroup;
+			children = (
+				B103D1742613709E0085777E /* TasksVCDelegate.swift */,
+			);
+			path = protocol;
+			sourceTree = "<group>";
+		};
+		B103D177261377F70085777E /* view */ = {
+			isa = PBXGroup;
+			children = (
+				B103D178261378190085777E /* OngoinTaskTableViewCell.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
 		B14B5FCB260D26F200ADE0C5 = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +125,8 @@
 		B14B5FD6260D26F200ADE0C5 /* TimingYourSkill3.0 */ = {
 			isa = PBXGroup;
 			children = (
+				B103D177261377F70085777E /* view */,
+				B103D1732613707A0085777E /* protocol */,
 				B103D16E261366DB0085777E /* service */,
 				B1DEF5FB260D489A001BC3FD /* controller */,
 				B1DEF5F6260D430F001BC3FD /* model */,
@@ -257,8 +279,10 @@
 			files = (
 				B103D16B261362C60085777E /* Task.swift in Sources */,
 				B14B5FDC260D26F200ADE0C5 /* TasksViewController.swift in Sources */,
+				B103D179261378190085777E /* OngoinTaskTableViewCell.swift in Sources */,
 				B11C7E92260E702C00D05065 /* NewTaskViewController.swift in Sources */,
 				B14B5FD8260D26F200ADE0C5 /* AppDelegate.swift in Sources */,
+				B103D1752613709E0085777E /* TasksVCDelegate.swift in Sources */,
 				B1DEF5F8260D432F001BC3FD /* menuSection.swift in Sources */,
 				B14B5FDA260D26F200ADE0C5 /* SceneDelegate.swift in Sources */,
 				B1DEF600260D49A3001BC3FD /* DoneTasksTableViewController.swift in Sources */,
