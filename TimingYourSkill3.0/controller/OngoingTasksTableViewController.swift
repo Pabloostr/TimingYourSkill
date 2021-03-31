@@ -26,15 +26,29 @@ class OngoingTasksTableViewController: UITableViewController {
     }
     
     private func addTasksListener() { /// Зберігає данні введені в tableview
-        databaseManager.addTasksListener { [weak self] (result) in
+        databaseManager.addTasksListener(forDoneTasks: false) { [weak self] (result) in
             switch result{
             case .success(let tasks):
                 self?.tasks = tasks
             case .failure(let error):
-                print(error.localizedDescription)
+                print(error )
             }
         }
     }
+    
+    private func handleActionButton(for task: Task) {
+        guard let id = task.id else { return }
+        databaseManager.updateTaskToDone(id: id) { (result) in
+            switch result{
+            case .success:
+                print("set to done succesfully")
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        
+    }
+    
 }
 
 extension OngoingTasksTableViewController {
@@ -44,6 +58,9 @@ extension OngoingTasksTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath) as! OngoinTaskTableViewCell
         let task = tasks[indexPath.row ]
+        cell.actionButtonDidTap = { [weak self] in
+            self?.handleActionButton(for: task)
+        }
         cell.configure(with: task)
         return cell
     }
