@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import Loaf
 
-class OngoingTasksTableViewController: UITableViewController {
+class OngoingTasksTableViewController: UITableViewController, Animatable {
     
-    private let databaseManager = DatabaseManeger()
+    private let databaseManager = DatabaseManager()
     
     
     private var tasks: [Task] = [] {
@@ -31,19 +32,19 @@ class OngoingTasksTableViewController: UITableViewController {
             case .success(let tasks):
                 self?.tasks = tasks
             case .failure(let error):
-                print(error )
+                self?.showToast(state: .error, message: error.localizedDescription)
             }
         }
     }
     
     private func handleActionButton(for task: Task) {
         guard let id = task.id else { return }
-        databaseManager.updateTaskToDone(id: id) { (result) in
+        databaseManager.updateTaskStatus(id: id, isDone:  true) { [weak self] (result) in
             switch result{
             case .success:
-                print("set to done succesfully")
+                self?.showToast(state: .info, message: "Move to Done", duration: 2.0)
             case .failure(let error):
-                print(error.localizedDescription)
+                self?.showToast(state: .error, message: error.localizedDescription)
             }
         }
         

@@ -313,6 +313,9 @@
                                                         <constraint firstAttribute="width" constant="24" id="1V0-H6-abQ"/>
                                                     </constraints>
                                                     <state key="normal" image="checkmark.circle" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="actionButtonTapped:" destination="Xtn-bp-y9P" eventType="touchUpInside" id="Fof-5e-fLt"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Some random task here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5yv-Wi-BGb">
                                                     <rect key="frame" x="40" y="0.0" width="342" height="27"/>

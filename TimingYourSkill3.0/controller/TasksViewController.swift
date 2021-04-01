@@ -13,7 +13,7 @@ class  TasksViewController: UIViewController {
     @IBOutlet weak var ongoingTasksConteinerView: UIView!
     @IBOutlet weak var doneTasksConteinerView: UIView!
     
-    private let  databaseManager = DatabaseManeger()
+    private let  databaseManager = DatabaseManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
