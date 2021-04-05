@@ -7,7 +7,7 @@
 
 import UIKit
 
-class  TasksViewController: UIViewController {
+class  TasksViewController: UIViewController, Animatable {
     
     @IBOutlet weak var menuSegmentedControl: UISegmentedControl!
     @IBOutlet weak var ongoingTasksConteinerView: UIView!
@@ -32,7 +32,7 @@ class  TasksViewController: UIViewController {
         menuSegmentedControl.selectedSegmentIndex = 0  // по дефолту буде вибраний "ongoing"
         showConteinerView(for: .ongoing)
     }
-
+    
     
     @IBAction func segmentedControlChanged(_ sender:UISegmentedControl) {
         switch sender.selectedSegmentIndex { // якщо індекс 0 то показує ongoing ,1 - done
@@ -53,20 +53,51 @@ class  TasksViewController: UIViewController {
         case .done:
             ongoingTasksConteinerView.isHidden = true
             doneTasksConteinerView.isHidden = false
-        
+            
         }
     }
+ 
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showNewTask",
-            let destination = segue.destination as? NewTaskViewController {
+           let destination = segue.destination as? NewTaskViewController {
             destination.delegate = self
-            }
+        } else if segue.identifier == "showOngoingTasks"{
+            let destination = segue.destination as? OngoingTasksTableViewController
+            destination?.delegate = self
+        }
         
+    }
+    
+    private func deleteTask(id:String) {
+        databaseManager.deleteTask(id: id) { [weak self] (result) in
+            switch result {
+            case.success:
+                self?.showToast(state: .success, message: "Task deleted succsessfully")
+            case.failure(let error):
+                self?.showToast(state: .error, message: error.localizedDescription)
+            }
+        }
     }
     
     @IBAction func addTaskButtonTapped (_ sender:UIButton){
         performSegue(withIdentifier: "showNewTask", sender: nil)
+    }
+}
+
+
+extension TasksViewController: OngoingTaskTVCDelegate {
+        func showOptions (for task: Task) { /// алерт який показує кнопки для видалення таски
+        let alertController = UIAlertController (title: nil, message: nil, preferredStyle: .actionSheet)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { [unowned self] _ in
+            guard let id = task.id else {return}
+            self.deleteTask(id: id)
+            
+        }
+        alertController.addAction(cancelAction)
+        alertController.addAction(deleteAction)
+        present(alertController, animated: true, completion: nil)
     }
 }
 
@@ -83,8 +114,8 @@ extension TasksViewController: TasksVCDelegate { // додавання таск�
                 }
             }
         })
-
+        
     }
     
-     
+    
 }

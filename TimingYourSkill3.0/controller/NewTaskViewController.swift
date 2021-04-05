@@ -20,7 +20,7 @@ class NewTaskViewController: UIViewController {
     @Published private var taskString: String?
     
     weak var delegate: TasksVCDelegate?
-     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -30,7 +30,7 @@ class NewTaskViewController: UIViewController {
     }
     
     private func observeForm() { // настройка кнопки save . Поки тексту нема кнопка буде сірою
-
+        
         NotificationCenter.default.publisher(for: UITextField.textDidChangeNotification).map({
             ($0.object as? UITextField)?.text
         }).sink { [unowned self] (text) in
@@ -47,7 +47,7 @@ class NewTaskViewController: UIViewController {
         super.viewDidAppear(animated)
         taskTextField.becomeFirstResponder()
     }
-     
+    
     private func setupView() {
         backgroundView.backgroundColor = UIColor.init(white: 0.3, alpha: 0.4)
         containerViewBottomConstrain.constant = -containerView.frame.height
@@ -63,7 +63,7 @@ class NewTaskViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
-   
+        
     }
     
     @objc func keyboardWillShow(_ notification: Notification ) { // в цій функції зробив щоб зайве місце в контейнері займала клавіатура
@@ -74,16 +74,16 @@ class NewTaskViewController: UIViewController {
             self.containerViewBottomConstrain.constant =  keyboardHeight - (200 +  8)
             self.view.layoutIfNeeded()
         }, completion: nil)
-
+        
     }
     
     @objc func keyboardWillHide(_ notification: Notification ) {
-    
+        
         
         containerViewBottomConstrain.constant =  -containerView.frame.height
         
     }
-      
+    
     
     
     private func getKeyboardHeight (notification: Notification) -> CGFloat  {  // розмір клавіатури
@@ -93,7 +93,7 @@ class NewTaskViewController: UIViewController {
     
     @objc private func dismissViewController() {
         dismiss(animated: true, completion: nil)
-         
+        
     }
     
     

@@ -8,6 +8,10 @@
 import UIKit
 import Loaf
 
+protocol OngoingTaskTVCDelegate: class  { /// настройки для видалення таски
+    func showOptions (for task: Task)
+}
+
 class OngoingTasksTableViewController: UITableViewController, Animatable {
     
     private let databaseManager = DatabaseManager()
@@ -19,11 +23,12 @@ class OngoingTasksTableViewController: UITableViewController, Animatable {
         }
     }
     
+    weak var delegate: OngoingTaskTVCDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         addTasksListener()
-
+        
     }
     
     private func addTasksListener() { /// Зберігає данні введені в tableview
@@ -64,5 +69,11 @@ extension OngoingTasksTableViewController {
         }
         cell.configure(with: task)
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let task = tasks[indexPath.item]
+        delegate?.showOptions(for: task)
     }
 }
