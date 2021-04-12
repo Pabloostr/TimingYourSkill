@@ -21,6 +21,13 @@ class NewTaskViewController: UIViewController {
     
     weak var delegate: TasksVCDelegate?
     
+    private lazy var calendarView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .yellow
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -96,8 +103,19 @@ class NewTaskViewController: UIViewController {
         
     }
     
+    private func showCalendar() {
+        view.addSubview(calendarView)
+        NSLayoutConstraint.activate([
+            calendarView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            calendarView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            calendarView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            calendarView.heightAnchor.constraint(equalToConstant: 200)
+        ])
+    }
     
     @IBAction func calendarButtonTapped(_ sender: Any) {
+        taskTextField.resignFirstResponder()
+        showCalendar()
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
