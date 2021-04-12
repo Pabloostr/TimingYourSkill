@@ -26,6 +26,7 @@
 		B1DEF5F8260D432F001BC3FD /* menuSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DEF5F7260D432F001BC3FD /* menuSection.swift */; };
 		B1DEF5FD260D48C5001BC3FD /* OngoingTasksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DEF5FC260D48C5001BC3FD /* OngoingTasksTableViewController.swift */; };
 		B1DEF600260D49A3001BC3FD /* DoneTasksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DEF5FF260D49A3001BC3FD /* DoneTasksTableViewController.swift */; };
+		B1EEA19B2624D6FB00877418 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EEA19A2624D6FB00877418 /* CalendarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		B1DEF5F7260D432F001BC3FD /* menuSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menuSection.swift; sourceTree = "<group>"; };
 		B1DEF5FC260D48C5001BC3FD /* OngoingTasksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingTasksTableViewController.swift; sourceTree = "<group>"; };
 		B1DEF5FF260D49A3001BC3FD /* DoneTasksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneTasksTableViewController.swift; sourceTree = "<group>"; };
+		B1EEA19A2624D6FB00877418 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		C933D37FFA4B8B9921BE92A6 /* Pods_TimingYourSkill3_0.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TimingYourSkill3_0.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -105,6 +107,7 @@
 			children = (
 				B103D178261378190085777E /* OngoinTaskTableViewCell.swift */,
 				B103D17C2614E4940085777E /* DoneTaskTableViewCell.swift */,
+				B1EEA19A2624D6FB00877418 /* CalendarView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				B103D1752613709E0085777E /* TasksVCDelegate.swift in Sources */,
 				B1DEF5F8260D432F001BC3FD /* menuSection.swift in Sources */,
 				B14B5FDA260D26F200ADE0C5 /* SceneDelegate.swift in Sources */,
+				B1EEA19B2624D6FB00877418 /* CalendarView.swift in Sources */,
 				B1DEF600260D49A3001BC3FD /* DoneTasksTableViewController.swift in Sources */,
 				B1DEF5FD260D48C5001BC3FD /* OngoingTasksTableViewController.swift in Sources */,
 				B1D4C36B2616060700E0EC46 /* Animatable.swift in Sources */,

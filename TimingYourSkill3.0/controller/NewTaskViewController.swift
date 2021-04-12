@@ -21,10 +21,9 @@ class NewTaskViewController: UIViewController {
     
     weak var delegate: TasksVCDelegate?
     
-    private lazy var calendarView: UIView = {
-        let view = UIView()
+    private lazy var calendarView: CalendarView = {
+        let view = CalendarView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .yellow
         return view
     }()
     
@@ -108,8 +107,7 @@ class NewTaskViewController: UIViewController {
         NSLayoutConstraint.activate([
             calendarView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             calendarView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            calendarView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            calendarView.heightAnchor.constraint(equalToConstant: 200)
+            calendarView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
     
