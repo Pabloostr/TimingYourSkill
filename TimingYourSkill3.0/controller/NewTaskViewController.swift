@@ -61,6 +61,7 @@ class NewTaskViewController: UIViewController {
     
     private func setupGesture() { // функція для нажимання на екран щоб пропав контроллер
         let tapGestures = UITapGestureRecognizer(target: self, action: #selector(dismissViewController))
+        tapGestures.delegate = self
         view.addGestureRecognizer(tapGestures)
         
     }
@@ -102,7 +103,7 @@ class NewTaskViewController: UIViewController {
         
     }
     
-    private func showCalendar() {
+    private func showCalendar() { /// розташування календаря
         view.addSubview(calendarView)
         NSLayoutConstraint.activate([
             calendarView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -120,5 +121,15 @@ class NewTaskViewController: UIViewController {
         guard let taskString = self.taskString else {return}
         let task = Task(title: taskString)
         delegate?.didAddTask(task)
+    }
+}
+
+extension NewTaskViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        if calendarView.isDescendant(of: view){
+            return false
+        }
+        return true
+        
     }
 }
