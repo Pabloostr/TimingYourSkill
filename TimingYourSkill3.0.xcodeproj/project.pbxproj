@@ -22,6 +22,8 @@
 		B14B5FE1260D26F400ADE0C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B14B5FE0260D26F400ADE0C5 /* Assets.xcassets */; };
 		B14B5FE4260D26F400ADE0C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B14B5FE2260D26F400ADE0C5 /* LaunchScreen.storyboard */; };
 		B14B5FED260D277100ADE0C5 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = B14B5FEC260D277100ADE0C5 /* Podfile */; };
+		B1CC9DA92625E03B0037CA4F /* CalendarViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CC9DA82625E03B0037CA4F /* CalendarViewDelegate.swift */; };
+		B1CC9DAD2625E2AF0037CA4F /* Extension+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CC9DAC2625E2AF0037CA4F /* Extension+Date.swift */; };
 		B1D4C36B2616060700E0EC46 /* Animatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D4C36A2616060700E0EC46 /* Animatable.swift */; };
 		B1DEF5F8260D432F001BC3FD /* menuSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DEF5F7260D432F001BC3FD /* menuSection.swift */; };
 		B1DEF5FD260D48C5001BC3FD /* OngoingTasksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DEF5FC260D48C5001BC3FD /* OngoingTasksTableViewController.swift */; };
@@ -48,6 +50,8 @@
 		B14B5FE3260D26F400ADE0C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B14B5FE5260D26F400ADE0C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B14B5FEC260D277100ADE0C5 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		B1CC9DA82625E03B0037CA4F /* CalendarViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewDelegate.swift; sourceTree = "<group>"; };
+		B1CC9DAC2625E2AF0037CA4F /* Extension+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Date.swift"; sourceTree = "<group>"; };
 		B1D4C36A2616060700E0EC46 /* Animatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animatable.swift; sourceTree = "<group>"; };
 		B1DEF5F7260D432F001BC3FD /* menuSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menuSection.swift; sourceTree = "<group>"; };
 		B1DEF5FC260D48C5001BC3FD /* OngoingTasksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingTasksTableViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +102,7 @@
 			children = (
 				B103D1742613709E0085777E /* TasksVCDelegate.swift */,
 				B1D4C36A2616060700E0EC46 /* Animatable.swift */,
+				B1CC9DA82625E03B0037CA4F /* CalendarViewDelegate.swift */,
 			);
 			path = protocol;
 			sourceTree = "<group>";
@@ -134,6 +139,7 @@
 		B14B5FD6260D26F200ADE0C5 /* TimingYourSkill3.0 */ = {
 			isa = PBXGroup;
 			children = (
+				B1CC9DAB2625E2800037CA4F /* extensions */,
 				B103D177261377F70085777E /* view */,
 				B103D1732613707A0085777E /* protocol */,
 				B103D16E261366DB0085777E /* service */,
@@ -148,6 +154,14 @@
 				B14B5FE5260D26F400ADE0C5 /* Info.plist */,
 			);
 			path = TimingYourSkill3.0;
+			sourceTree = "<group>";
+		};
+		B1CC9DAB2625E2800037CA4F /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B1CC9DAC2625E2AF0037CA4F /* Extension+Date.swift */,
+			);
+			path = extensions;
 			sourceTree = "<group>";
 		};
 		B1DEF5F6260D430F001BC3FD /* model */ = {
@@ -289,7 +303,9 @@
 				B103D16B261362C60085777E /* Task.swift in Sources */,
 				B14B5FDC260D26F200ADE0C5 /* TasksViewController.swift in Sources */,
 				B103D179261378190085777E /* OngoinTaskTableViewCell.swift in Sources */,
+				B1CC9DA92625E03B0037CA4F /* CalendarViewDelegate.swift in Sources */,
 				B11C7E92260E702C00D05065 /* NewTaskViewController.swift in Sources */,
+				B1CC9DAD2625E2AF0037CA4F /* Extension+Date.swift in Sources */,
 				B14B5FD8260D26F200ADE0C5 /* AppDelegate.swift in Sources */,
 				B103D1752613709E0085777E /* TasksVCDelegate.swift in Sources */,
 				B1DEF5F8260D432F001BC3FD /* menuSection.swift in Sources */,

@@ -9,6 +9,9 @@ import UIKit
 import FSCalendar
 
 class CalendarView: UIView { /// настройки календаря
+    
+    weak var delegate: CalendarViewDelegate?
+    
     private lazy var calendar: FSCalendar = {
         let calendar = FSCalendar()
         calendar.translatesAutoresizingMaskIntoConstraints = false
@@ -24,11 +27,12 @@ class CalendarView: UIView { /// настройки календаря
         return label
     }()
     
-    private lazy var removeButton: UIButton = {
+    private lazy var removeButton: UIButton = { /// настрйокни кнопки remove
         let button = UIButton(type: .system)
         button.setTitle("Remove ", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .systemRed
+        button.layer.cornerRadius = 5
         button.addTarget(self, action: #selector(removeButtonTapped(_:)), for: .touchUpInside)
         return button
     }()
@@ -50,6 +54,14 @@ class CalendarView: UIView { /// настройки календаря
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func willMove(toSuperview newSuperview: UIView?) { /// поки не виставленна дата в календарі. Кнопка remove - прихована
+        if calendar.selectedDate == nil {
+            removeButton.removeFromSuperview()
+        }else if removeButton.isDescendant(of: stackView) == false {
+            stackView.addArrangedSubview(removeButton)
+        }
+    }
+    
     private func setupViews() {
         backgroundColor = .white
         addSubview(stackView)
@@ -66,12 +78,15 @@ class CalendarView: UIView { /// настройки календаря
     }
     
     @objc func removeButtonTapped(_ sender: UIButton) {
-        print("remove button tapped")
+        if let selectedDate = calendar.selectedDate {
+            calendar.deselect(selectedDate)
+            delegate?.calendarDidTapCloseButton()
+        }
     }
 }
 
 extension CalendarView: FSCalendarDelegate {
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        print("date selected \(date)")
+        delegate?.calendarViewDidSelectDate(date: date)
     }
 }

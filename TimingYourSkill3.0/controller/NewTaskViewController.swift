@@ -15,14 +15,18 @@ class NewTaskViewController: UIViewController {
     @IBOutlet weak var taskTextField: UITextField!
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var deadlineLabel: UILabel!
     
     private var subscribers = Set<AnyCancellable>()
+    
     @Published private var taskString: String?
+    @Published private var deadline: Date?
     
     weak var delegate: TasksVCDelegate?
     
     private lazy var calendarView: CalendarView = {
         let view = CalendarView()
+        view.delegate = self
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -46,6 +50,10 @@ class NewTaskViewController: UIViewController {
         $taskString.sink { [unowned self] (text) in
             self.saveButton.isEnabled = text?.isEmpty == false
         }.store(in: &subscribers)
+        
+        $deadline.sink { (date) in
+            self.deadlineLabel.text = date?.toString() ?? ""
+        }.store(in: &subscribers) 
     }
     
     
@@ -98,6 +106,11 @@ class NewTaskViewController: UIViewController {
         return keyboardHeight
     }
     
+    private func dismissCalendarView(completion: () -> Void) {
+        calendarView.removeFromSuperview()
+        completion()
+    }
+    
     @objc private func dismissViewController() {
         dismiss(animated: true, completion: nil)
         
@@ -127,9 +140,32 @@ class NewTaskViewController: UIViewController {
 extension NewTaskViewController: UIGestureRecognizerDelegate {
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         if calendarView.isDescendant(of: view){
+            if touch.view?.isDescendant(of: calendarView) == false {
+                dismissCalendarView { [unowned self] in
+                    self.taskTextField.becomeFirstResponder()
+                }
+            }
             return false
         }
         return true
         
     }
+}
+
+extension NewTaskViewController: CalendarViewDelegate {
+    func calendarViewDidSelectDate(date: Date) {
+        dismissCalendarView { [unowned self] in
+            self.taskTextField.becomeFirstResponder()
+            self.deadline = date
+        } 
+    }
+    
+    func calendarDidTapCloseButton() {
+        dismissCalendarView {
+            self.taskTextField.becomeFirstResponder()
+            self.deadline = nil
+        }
+    }
+
+     
 }
