@@ -11,7 +11,7 @@
 		B103D16826135F690085777E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B103D16726135F690085777E /* GoogleService-Info.plist */; };
 		B103D16B261362C60085777E /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = B103D16A261362C60085777E /* Task.swift */; };
 		B103D170261367140085777E /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B103D16F261367140085777E /* DatabaseManager.swift */; };
-		B103D1752613709E0085777E /* TasksVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B103D1742613709E0085777E /* TasksVCDelegate.swift */; };
+		B103D1752613709E0085777E /* NewTaskVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B103D1742613709E0085777E /* NewTaskVCDelegate.swift */; };
 		B103D179261378190085777E /* OngoinTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B103D178261378190085777E /* OngoinTaskTableViewCell.swift */; };
 		B103D17D2614E4940085777E /* DoneTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B103D17C2614E4940085777E /* DoneTaskTableViewCell.swift */; };
 		B11C7E92260E702C00D05065 /* NewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11C7E91260E702C00D05065 /* NewTaskViewController.swift */; };
@@ -37,7 +37,7 @@
 		B103D16726135F690085777E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B103D16A261362C60085777E /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		B103D16F261367140085777E /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
-		B103D1742613709E0085777E /* TasksVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksVCDelegate.swift; sourceTree = "<group>"; };
+		B103D1742613709E0085777E /* NewTaskVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskVCDelegate.swift; sourceTree = "<group>"; };
 		B103D178261378190085777E /* OngoinTaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoinTaskTableViewCell.swift; sourceTree = "<group>"; };
 		B103D17C2614E4940085777E /* DoneTaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneTaskTableViewCell.swift; sourceTree = "<group>"; };
 		B11C7E91260E702C00D05065 /* NewTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskViewController.swift; sourceTree = "<group>"; };
@@ -100,7 +100,7 @@
 		B103D1732613707A0085777E /* protocol */ = {
 			isa = PBXGroup;
 			children = (
-				B103D1742613709E0085777E /* TasksVCDelegate.swift */,
+				B103D1742613709E0085777E /* NewTaskVCDelegate.swift */,
 				B1D4C36A2616060700E0EC46 /* Animatable.swift */,
 				B1CC9DA82625E03B0037CA4F /* CalendarViewDelegate.swift */,
 			);
@@ -307,7 +307,7 @@
 				B11C7E92260E702C00D05065 /* NewTaskViewController.swift in Sources */,
 				B1CC9DAD2625E2AF0037CA4F /* Extension+Date.swift in Sources */,
 				B14B5FD8260D26F200ADE0C5 /* AppDelegate.swift in Sources */,
-				B103D1752613709E0085777E /* TasksVCDelegate.swift in Sources */,
+				B103D1752613709E0085777E /* NewTaskVCDelegate.swift in Sources */,
 				B1DEF5F8260D432F001BC3FD /* menuSection.swift in Sources */,
 				B14B5FDA260D26F200ADE0C5 /* SceneDelegate.swift in Sources */,
 				B1EEA19B2624D6FB00877418 /* CalendarView.swift in Sources */,

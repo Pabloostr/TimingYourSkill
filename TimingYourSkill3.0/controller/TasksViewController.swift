@@ -65,6 +65,11 @@ class  TasksViewController: UIViewController, Animatable {
         } else if segue.identifier == "showOngoingTasks"{
             let destination = segue.destination as? OngoingTasksTableViewController
             destination?.delegate = self
+        } else if segue.identifier == "showEditTask",
+                  let destination = segue.destination as? NewTaskViewController,
+                   let taskToEdit = sender as? Task {
+            destination.delegate = self
+            destination.taskToEdit = taskToEdit
         }
         
     }
@@ -80,6 +85,10 @@ class  TasksViewController: UIViewController, Animatable {
         }
     }
     
+    private func editTask(task: Task) {
+        performSegue(withIdentifier: "showEditTask", sender: task)
+    }
+    
     @IBAction func addTaskButtonTapped (_ sender:UIButton){
         performSegue(withIdentifier: "showNewTask", sender: nil)
     }
@@ -87,7 +96,7 @@ class  TasksViewController: UIViewController, Animatable {
 
 
 extension TasksViewController: OngoingTaskTVCDelegate {
-        func showOptions (for task: Task) { /// алерт який показує кнопки для видалення таски
+        func showOptions (for task: Task) { /// алерт який показує кнопки для видалення\редагування таски
         let alertController = UIAlertController (title: nil, message: nil, preferredStyle: .actionSheet)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { [unowned self] _ in
@@ -95,22 +104,40 @@ extension TasksViewController: OngoingTaskTVCDelegate {
             self.deleteTask(id: id)
             
         }
+            let editAction = UIAlertAction(title: "Edit", style: .default) { [unowned self] _ in
+                self.editTask(task: task)
+            }
+            
         alertController.addAction(cancelAction)
         alertController.addAction(deleteAction)
+        alertController.addAction(editAction)
         present(alertController, animated: true, completion: nil)
     }
 }
 
-extension TasksViewController: TasksVCDelegate { // додавання таски в firebase
-    func didAddTask(_ task: Task) {
-        
-        presentedViewController?.dismiss(animated: true, completion: { [unowned self] in
-            self.databaseManager.addTask(task) { (result ) in
+extension TasksViewController: NewTaskVCDelegate { /// редаугвання таски в firebase
+    func didEditTask(_ task: Task) {
+        presentedViewController?.dismiss(animated: true, completion: {
+            guard let id = task.id else {return}
+            self.databaseManager.editTask(id: id, title: task.title, deadline: task.deadline) {   [weak self] (result) in
                 switch result {
                 case .success:
-                    print("yay")
+                    self?.showToast(state: .success, message: "Task updated successfully")
                 case .failure(let error):
-                    print("error:  \(error.localizedDescription)")
+                    self?.showToast(state: .error, message: error.localizedDescription)
+                }
+            }
+        })
+    }
+    
+    func didAddTask(_ task: Task) { /// додавання таски в firebase
+        
+        presentedViewController?.dismiss(animated: true, completion: { [unowned self] in
+            self.databaseManager.addTask(task) { [weak self] (result ) in
+                switch result {
+                case .success: break
+                case .failure(let error):
+                    self?.showToast(state: .error, message: error.localizedDescription)
                 }
             }
         })
