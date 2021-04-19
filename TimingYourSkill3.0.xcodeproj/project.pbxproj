@@ -28,6 +28,9 @@
 		B1DEF5F8260D432F001BC3FD /* menuSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DEF5F7260D432F001BC3FD /* menuSection.swift */; };
 		B1DEF5FD260D48C5001BC3FD /* OngoingTasksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DEF5FC260D48C5001BC3FD /* OngoingTasksTableViewController.swift */; };
 		B1DEF600260D49A3001BC3FD /* DoneTasksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DEF5FF260D49A3001BC3FD /* DoneTasksTableViewController.swift */; };
+		B1E21F1F262E019C001B08E8 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E21F1E262E019C001B08E8 /* OnboardingViewController.swift */; };
+		B1E21F22262E0438001B08E8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E21F21262E0438001B08E8 /* LoginViewController.swift */; };
+		B1E21F25262E0586001B08E8 /* LoginVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E21F24262E0586001B08E8 /* LoginVCDelegate.swift */; };
 		B1EEA19B2624D6FB00877418 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EEA19A2624D6FB00877418 /* CalendarView.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +59,9 @@
 		B1DEF5F7260D432F001BC3FD /* menuSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menuSection.swift; sourceTree = "<group>"; };
 		B1DEF5FC260D48C5001BC3FD /* OngoingTasksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingTasksTableViewController.swift; sourceTree = "<group>"; };
 		B1DEF5FF260D49A3001BC3FD /* DoneTasksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneTasksTableViewController.swift; sourceTree = "<group>"; };
+		B1E21F1E262E019C001B08E8 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		B1E21F21262E0438001B08E8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B1E21F24262E0586001B08E8 /* LoginVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVCDelegate.swift; sourceTree = "<group>"; };
 		B1EEA19A2624D6FB00877418 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		C933D37FFA4B8B9921BE92A6 /* Pods_TimingYourSkill3_0.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TimingYourSkill3_0.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -103,6 +109,7 @@
 				B103D1742613709E0085777E /* NewTaskVCDelegate.swift */,
 				B1D4C36A2616060700E0EC46 /* Animatable.swift */,
 				B1CC9DA82625E03B0037CA4F /* CalendarViewDelegate.swift */,
+				B1E21F24262E0586001B08E8 /* LoginVCDelegate.swift */,
 			);
 			path = protocol;
 			sourceTree = "<group>";
@@ -180,6 +187,8 @@
 				B1DEF5FC260D48C5001BC3FD /* OngoingTasksTableViewController.swift */,
 				B1DEF5FF260D49A3001BC3FD /* DoneTasksTableViewController.swift */,
 				B11C7E91260E702C00D05065 /* NewTaskViewController.swift */,
+				B1E21F1E262E019C001B08E8 /* OnboardingViewController.swift */,
+				B1E21F21262E0438001B08E8 /* LoginViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -300,14 +309,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1E21F22262E0438001B08E8 /* LoginViewController.swift in Sources */,
 				B103D16B261362C60085777E /* Task.swift in Sources */,
 				B14B5FDC260D26F200ADE0C5 /* TasksViewController.swift in Sources */,
 				B103D179261378190085777E /* OngoinTaskTableViewCell.swift in Sources */,
+				B1E21F1F262E019C001B08E8 /* OnboardingViewController.swift in Sources */,
 				B1CC9DA92625E03B0037CA4F /* CalendarViewDelegate.swift in Sources */,
 				B11C7E92260E702C00D05065 /* NewTaskViewController.swift in Sources */,
 				B1CC9DAD2625E2AF0037CA4F /* Extension+Date.swift in Sources */,
 				B14B5FD8260D26F200ADE0C5 /* AppDelegate.swift in Sources */,
 				B103D1752613709E0085777E /* NewTaskVCDelegate.swift in Sources */,
+				B1E21F25262E0586001B08E8 /* LoginVCDelegate.swift in Sources */,
 				B1DEF5F8260D432F001BC3FD /* menuSection.swift in Sources */,
 				B14B5FDA260D26F200ADE0C5 /* SceneDelegate.swift in Sources */,
 				B1EEA19B2624D6FB00877418 /* CalendarView.swift in Sources */,
