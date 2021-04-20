@@ -23,6 +23,7 @@
 		B14B5FE4260D26F400ADE0C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B14B5FE2260D26F400ADE0C5 /* LaunchScreen.storyboard */; };
 		B14B5FED260D277100ADE0C5 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = B14B5FEC260D277100ADE0C5 /* Podfile */; };
 		B14E9CFF262F120C00741F5C /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14E9CFE262F120C00741F5C /* NavigationManager.swift */; };
+		B14E9D02262F18CB00741F5C /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14E9D01262F18CB00741F5C /* AuthManager.swift */; };
 		B1CC9DA92625E03B0037CA4F /* CalendarViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CC9DA82625E03B0037CA4F /* CalendarViewDelegate.swift */; };
 		B1CC9DAD2625E2AF0037CA4F /* Extension+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CC9DAC2625E2AF0037CA4F /* Extension+Date.swift */; };
 		B1D4C36B2616060700E0EC46 /* Animatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D4C36A2616060700E0EC46 /* Animatable.swift */; };
@@ -55,6 +56,7 @@
 		B14B5FE5260D26F400ADE0C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B14B5FEC260D277100ADE0C5 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		B14E9CFE262F120C00741F5C /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
+		B14E9D01262F18CB00741F5C /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		B1CC9DA82625E03B0037CA4F /* CalendarViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewDelegate.swift; sourceTree = "<group>"; };
 		B1CC9DAC2625E2AF0037CA4F /* Extension+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Date.swift"; sourceTree = "<group>"; };
 		B1D4C36A2616060700E0EC46 /* Animatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animatable.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 			children = (
 				B103D16F261367140085777E /* DatabaseManager.swift */,
 				B14E9CFE262F120C00741F5C /* NavigationManager.swift */,
+				B14E9D01262F18CB00741F5C /* AuthManager.swift */,
 			);
 			path = service;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1E21F22262E0438001B08E8 /* LoginViewController.swift in Sources */,
+				B14E9D02262F18CB00741F5C /* AuthManager.swift in Sources */,
 				B103D16B261362C60085777E /* Task.swift in Sources */,
 				B14B5FDC260D26F200ADE0C5 /* TasksViewController.swift in Sources */,
 				B103D179261378190085777E /* OngoinTaskTableViewCell.swift in Sources */,
