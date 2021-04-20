@@ -22,6 +22,16 @@ class AuthManager {
         }
     }
     
+    func signUp(withEmail email: String, password: String, completion: @escaping (Result<Void, Error>) -> Void ) {
+        auth.createUser(withEmail: email, password: password) { (result, error ) in 
+            if let error = error {
+                completion(.failure(error ))
+            }else {
+                completion(.success(()))
+            }
+        }
+    }
+    
     func logout(completion: (Result<Void, Error>) -> Void) {
         do {
             try auth.signOut()
