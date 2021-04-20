@@ -9,7 +9,7 @@ import UIKit
 
 class OnboardingViewController: UIViewController {
     
-    
+    private let navigationManager = NavigationManager.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,8 +32,8 @@ class OnboardingViewController: UIViewController {
 
 extension OnboardingViewController: LoginVCDelegate {
     func didLogin() {
-        presentedViewController?.dismiss(animated: true, completion: {
-            print("we should login and show the main app now")
+        presentedViewController?.dismiss(animated: true, completion: { [unowned self] in
+            self.navigationManager.show(scene: .tasks)
         })
     }
     
