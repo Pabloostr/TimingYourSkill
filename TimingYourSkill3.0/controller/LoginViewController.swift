@@ -18,10 +18,11 @@ class LoginViewController: UIViewController, Animatable {
     }
     
     @IBAction func loginWithPavloButtonTapped(_ sender: UIButton) {
-        
+        showLoadingAnimation()
         let email = "pavlo@gmail.com"
         let password = "12345678"
         authManager.login(withEmail: email, password: password) { [weak self] (result) in
+            self?.hideLoadingAnimation()
             switch result {
             case .success:
                 self?.delegate?.didLogin()

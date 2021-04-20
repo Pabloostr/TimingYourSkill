@@ -33,6 +33,16 @@ class  TasksViewController: UIViewController, Animatable {
         showConteinerView(for: .ongoing)
     }
     
+    private func showMenuOptions() { /// натсройки кнопки menu
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let logoutAction = UIAlertAction(title: "Logout", style: .default) { _ in
+            print("logout here")
+        }
+        alertController.addAction(cancelAction)
+        alertController.addAction(logoutAction)
+        present(alertController, animated: true, completion: nil)
+    }
     
     @IBAction func segmentedControlChanged(_ sender:UISegmentedControl) {
         switch sender.selectedSegmentIndex { // якщо індекс 0 то показує ongoing ,1 - done
@@ -44,6 +54,9 @@ class  TasksViewController: UIViewController, Animatable {
         }
     }
     
+    @IBAction func  menuButtonTapped(_ sender: UIButton) {
+        showMenuOptions()
+    }
     
     private func showConteinerView(for section: MenuSection){ //функція яка вибирає який контейнер буде відображено
         switch section {

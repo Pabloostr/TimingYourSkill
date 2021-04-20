@@ -19,7 +19,7 @@ class NavigationManager {
         case tasks
     }
     
-    func show(scene: Scene) {
+    func show(scene: Scene) { 
         switch scene {
         case .onboarding: break
         case .tasks:
