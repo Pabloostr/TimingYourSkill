@@ -17,6 +17,8 @@ class NewTaskViewController: UIViewController {
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var deadlineLabel: UILabel!
     
+    private let authManager = AuthManager()
+    
     private var subscribers = Set<AnyCancellable>()
     var taskToEdit: Task?
     
@@ -140,8 +142,9 @@ class NewTaskViewController: UIViewController {
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
-        guard let taskString = self.taskString else {return}
-        var task = Task(title: taskString, deadline: deadline)
+        guard let taskString = self.taskString, let uid = authManager.getUserId() else {return}
+        
+        var task = Task(title: taskString, deadline: deadline, uid: uid)
         
         if let id = taskToEdit?.id {
             task.id = id

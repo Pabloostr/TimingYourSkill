@@ -14,6 +14,8 @@ class  TasksViewController: UIViewController, Animatable {
     @IBOutlet weak var doneTasksConteinerView: UIView!
     
     private let  databaseManager = DatabaseManager()
+    private let authManager = AuthManager()
+    private let navigationManager = NavigationManager.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,11 +35,22 @@ class  TasksViewController: UIViewController, Animatable {
         showConteinerView(for: .ongoing)
     }
     
+    private func logoutUser() {
+        authManager.logout { [unowned self] (result) in
+            switch result {
+            case .success:
+                navigationManager.show(scene: .onboarding)
+            case .failure(let error):
+                self.showToast(state: .error, message: error.localizedDescription)
+            }
+        }
+    }
+    
     private func showMenuOptions() { /// натсройки кнопки menu
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        let logoutAction = UIAlertAction(title: "Logout", style: .default) { _ in
-            print("logout here")
+        let logoutAction = UIAlertAction(title: "Logout", style: .default) { [unowned self] _ in
+            self.logoutUser()
         }
         alertController.addAction(cancelAction)
         alertController.addAction(logoutAction)

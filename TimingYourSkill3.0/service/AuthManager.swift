@@ -20,6 +20,22 @@ class AuthManager {
                 completion(.success(()))
             }
         }
-        
+    }
+    
+    func logout(completion: (Result<Void, Error>) -> Void) {
+        do {
+            try auth.signOut()
+            completion(.success(()))
+        } catch(let error) {
+            completion(.failure(error))
+        } 
+    }
+    
+    func isUserLoggedIn() -> Bool {
+        return auth.currentUser != nil
+    }
+    
+    func getUserId() -> String? {
+        return auth.currentUser?.uid
     }
 }

@@ -31,4 +31,19 @@ class LoginViewController: UIViewController, Animatable {
             }
         }
     }
+    
+    @IBAction func loginWithColbyButtonTapped(_ sender: UIButton) {
+        showLoadingAnimation()
+        let email = "colby@gmail.com"
+        let password = "12345678"
+        authManager.login(withEmail: email, password: password) { [weak self] (result) in
+            self?.hideLoadingAnimation()
+            switch result {
+            case .success:
+                self?.delegate?.didLogin()
+            case .failure(let error):
+                self?.showToast(state: .error, message: error.localizedDescription, duration: 3.0)
+            }
+        }
+    }
 }

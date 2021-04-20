@@ -16,6 +16,7 @@ class DoneTasksTableViewController: UITableViewController, Animatable {
     }
     
     private let databaseManager = DatabaseManager()
+    private let authManager = AuthManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +24,11 @@ class DoneTasksTableViewController: UITableViewController, Animatable {
     }
     
     private func addTasksListener() { /// Зберігає данні введені в tableview
-        databaseManager.addTasksListener(forDoneTasks: true) { [weak self] (result) in
+        guard let uid = authManager.getUserId()else {
+            print("no user found")
+            return}
+        
+        databaseManager.addTasksListener(forDoneTasks: true, uid: uid) { [weak self] (result) in
             switch result{
             case .success(let tasks):
                 self?.tasks = tasks

@@ -55,8 +55,9 @@ class DatabaseManager {
     }
     
     
-    func addTasksListener(forDoneTasks isDone: Bool, completion: @escaping (Result<[Task], Error>) -> Void) {
+    func addTasksListener(forDoneTasks isDone: Bool, uid: String, completion: @escaping (Result<[Task], Error>) -> Void) {
         listener = tasksCollection
+            .whereField("uid", isEqualTo: uid)
             .whereField("isDone", isEqualTo: isDone)
             .order(by: "createdAt", descending: true)
             .addSnapshotListener({ (snapshot, error) in
