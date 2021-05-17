@@ -28,6 +28,11 @@ class LoginViewController: UIViewController, Animatable {
         observeForm()
     }
     
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//        emailTextField.becomeFirstResponder()
+//    }
+    
     private func observeForm() {
         $errorString.sink { [unowned self] (errorMessage) in
             self.errorLabel.text = errorMessage
