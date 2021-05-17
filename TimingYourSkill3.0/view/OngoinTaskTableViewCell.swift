@@ -27,6 +27,62 @@ class OngoinTaskTableViewCell: UITableViewCell {
     @IBAction func actionButtonTapped(_ sender: UIButton) {
         actionButtonDidTap?()
     }
+    ///Таймер
+    
+    @IBOutlet weak var TimerLabel: UILabel!
+    @IBOutlet weak var startStopButton: UIButton!
+    @IBOutlet weak var resetButton: UIButton!
+    
+    var timer:Timer = Timer()
+    var count:Int = 0
+    var timerCounting:Bool = false
+    
+   
     
     
+    @IBAction func resetTapped(_ sender: Any) {
+            self.count = 0
+            self.timer.invalidate()
+            self.TimerLabel.text = self.makeTimeString(hours: 0, minutes: 0, seconds: 0)
+
+    }
+    
+    @IBAction func startStopTapped(_ sender: Any) {
+        
+        if (timerCounting){
+            
+            timerCounting = false
+            timer.invalidate()
+            startStopButton.setTitle("Start", for: .normal)
+            startStopButton.setTitleColor(UIColor.green, for: .normal)
+            
+        }else {
+            
+            timerCounting = true
+            startStopButton.setTitle("Stop", for: .normal)
+            startStopButton.setTitleColor(UIColor.red, for: .normal)
+            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
+        }
+    }
+    
+    @objc func timerCounter() -> Void {
+        count = count + 1
+        let time = secondsToHoursMinutesSeconds(seconds: count)
+        let timeString = makeTimeString(hours: time.0, minutes: time.1, seconds: time.2)
+        TimerLabel.text = timeString
+    }
+    
+    func secondsToHoursMinutesSeconds(seconds: Int) -> (Int, Int, Int){
+        return (seconds / 3600, (seconds % 3600) / 60, ((seconds % 3600) %  60 ))
+    }
+    
+    func makeTimeString(hours: Int, minutes: Int, seconds: Int) -> String{
+        var timeString = ""
+        timeString += String(format: "%02d", hours)
+        timeString += " : "
+        timeString += String(format: "%02d", minutes)
+        timeString += " : "
+        timeString += String(format: "%02d", seconds)
+        return timeString
+    }
 }
