@@ -7,15 +7,38 @@
 
 import UIKit
 import Firebase
+import UserNotifications
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    let notificationCenter = UNUserNotificationCenter.current()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        FirebaseApp.configure() 
+        FirebaseApp.configure()
+        
+        notificationCenter.requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
+            
+            guard granted else {return}
+            self.notificationCenter.getNotificationSettings { (settings) in
+                guard settings.authorizationStatus == .authorized else {return}
+            }
+        }
+        notificationCenter.delegate = self
+        sendNotification()
         return true
+    }
+    
+    func sendNotification() { /// настройки localnotification
+        let content = UNMutableNotificationContent()
+        content.title = "Timing your skill"
+        content.body = "Don't forget about your skills 😉"
+        content.sound = UNNotificationSound.default
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        let request = UNNotificationRequest(identifier: "notification", content: content, trigger: trigger)
+        notificationCenter.add(request) { (error) in
+            print(error?.localizedDescription)
+        }
     }
 
     // MARK: UISceneSession Lifecycle
@@ -35,3 +58,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.banner, .sound])
+        print(#function)
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        print(#function)
+    }
+}
