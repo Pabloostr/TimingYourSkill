@@ -489,21 +489,60 @@
                                                     </connections>
                                                 </button>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Cp6-qx-BzP">
-                                                    <rect key="frame" x="40" y="0.0" width="342" height="94"/>
+                                                    <rect key="frame" x="40" y="0.0" width="186" height="94"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Some random task here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Kl-CD-3vv">
-                                                            <rect key="frame" x="0.0" y="0.0" width="342" height="73.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Some random task here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Kl-CD-3vv">
+                                                            <rect key="frame" x="0.0" y="0.0" width="186" height="22"/>
                                                             <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="LX4-Cd-bMa">
+                                                            <rect key="frame" x="0.0" y="22" width="186" height="72"/>
+                                                            <subviews>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CdC-8g-mtl">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="93" height="72"/>
+                                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="15"/>
+                                                                    <state key="normal" title="Start">
+                                                                        <color key="titleColor" systemColor="systemGreenColor"/>
+                                                                    </state>
+                                                                    <connections>
+                                                                        <action selector="startStopTapped:" destination="i0f-4y-cng" eventType="touchUpInside" id="swQ-Sh-oLA"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iug-N1-hX1">
+                                                                    <rect key="frame" x="93" y="0.0" width="93" height="72"/>
+                                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="15"/>
+                                                                    <state key="normal" title="Reset">
+                                                                        <color key="titleColor" systemColor="systemRedColor"/>
+                                                                    </state>
+                                                                    <connections>
+                                                                        <action selector="resetTapped:" destination="i0f-4y-cng" eventType="touchUpInside" id="W4l-ZC-HIw"/>
+                                                                    </connections>
+                                                                </button>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="iwL-SL-z4x">
+                                                    <rect key="frame" x="242" y="0.0" width="140" height="94"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="00:00:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OdO-FQ-hli">
+                                                            <rect key="frame" x="0.0" y="0.0" width="140" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="due in 3 days time" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y9p-nY-qL0">
-                                                            <rect key="frame" x="0.0" y="73.5" width="342" height="20.5"/>
+                                                            <rect key="frame" x="0.0" y="18" width="140" height="76"/>
                                                             <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="140" id="nve-Gd-yYC"/>
+                                                    </constraints>
                                                 </stackView>
                                             </subviews>
                                         </stackView>
@@ -517,6 +556,9 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="deadlineLabel" destination="y9p-nY-qL0" id="HpX-NK-pxp"/>
+                                    <outlet property="resetButton" destination="Iug-N1-hX1" id="acl-HU-6it"/>
+                                    <outlet property="startStopButton" destination="CdC-8g-mtl" id="Czx-GN-yFn"/>
+                                    <outlet property="timerLabel" destination="OdO-FQ-hli" id="dZ0-Ma-Syg"/>
                                     <outlet property="titleLabel" destination="5Kl-CD-3vv" id="fl4-CL-45g"/>
                                 </connections>
                             </tableViewCell>
